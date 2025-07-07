@@ -38,68 +38,50 @@ body {
   z-index: 1000;
 }
 
-.termux-logo-animated {
+.football-animated {
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle at center, #000 60%, #111);
-  border-radius: 12px;
+  background-color: white;
+  border-radius: 50%;
   position: relative;
-  box-shadow:
-    0 0 10px #00ff00,
-    0 0 20px #00ff00,
-    inset 0 0 10px #00ff0033;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: flicker 2.5s infinite ease-in-out;
-}
-
-.slash-animated {
-  display: block;
-  width: 6px;
-  height: 60%;
-  background-color: #00ff00;
-  transform: rotate(45deg);
+  animation: bounce 1.5s ease-in-out infinite, spin 4s linear infinite;
   box-shadow:
-    0 0 10px #00ff00,
-    0 0 25px #00ff00aa,
-    0 0 40px #00ff00aa;
-  animation: slashPulse 1.5s infinite ease-in-out;
-  border-radius: 2px;
+    0 0 10px #000,
+    0 0 20px #000,
+    inset 0 0 10px #555;
+  overflow: hidden;
 }
 
-@keyframes slashPulse {
-  0%, 100% {
-    transform: rotate(45deg) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: rotate(45deg) scale(1.2);
-    opacity: 0.6;
-  }
+.football-animated::before,
+.football-animated::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background:
+    radial-gradient(circle at 20% 20%, black 6%, transparent 7%),
+    radial-gradient(circle at 80% 20%, black 6%, transparent 7%),
+    radial-gradient(circle at 50% 50%, black 10%, transparent 11%),
+    radial-gradient(circle at 20% 80%, black 6%, transparent 7%),
+    radial-gradient(circle at 80% 80%, black 6%, transparent 7%);
+  background-size: 100% 100%;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.9;
 }
 
-@keyframes flicker {
-  0% {
-    box-shadow:
-      0 0 10px #00ff00,
-      0 0 20px #00ff00,
-      inset 0 0 10px #00ff0033;
-  }
-  50% {
-    box-shadow:
-      0 0 15px #00ff00,
-      0 0 30px #00ff00,
-      inset 0 0 15px #00ff0033;
-  }
-  100% {
-    box-shadow:
-      0 0 10px #00ff00,
-      0 0 20px #00ff00,
-      inset 0 0 10px #00ff0033;
-  }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2); }
@@ -209,58 +191,82 @@ footer a {
 </head>
 <body>
   <div class="preloader">
-    <div class="preloader">
-  <div class="preloader">
-  <div class="termux-logo-animated">
-    <span class="slash-animated"></span>
-  </div>
+    <div class="football-animated"></div>
 </div>
 </div>
   </div>  <div class="container">
-    <h1>TermuGPT</h1>
-    <p class="slogan">Your AI Powered Termux Assistant</p><div class="box">
-  <button class="copy-btn" onclick="copyText('bangla-text', 'status-bn')">কপি করুন</button>
+    <h1>GameBuzz</h1>
+    <p class="slogan">AI Game Predictor</p><div class="box">
+<button class="copy-btn" onclick="copyText('bangla-text', 'status-bn')">কপি করুন</button>
   <p>বাংলা ভার্সন</p>
   <br><br>
-  <textarea id="bangla-text" rows="10" readonly>ChatGPT 🚀 এখন থেকে আপনি একটি প্রফেশনাল টার্মাক্স (Termux) এক্সপার্ট সহকারী হিসেবে কাজ করবেন।
+  <textarea id="bangla-text" rows="10" readonly>ChatGPT একজন পেশাদার AI ক্রীড়া বিশ্লেষক হিসেবে কাজ করো, যে সর্বোচ্চ সঠিক এবং ডেটা-ভিত্তিক ম্যাচের ফলাফল পূর্বাভাস দিতে সক্ষম। নিচের খেলাটি সম্পূর্ণ গভীরতা ও নিখুঁত বিশ্লেষণের মাধ্যমে মূল্যায়ন করো, সর্বশেষ রিয়েল-টাইম তথ্য, দলীয় রেকর্ড, লাইভ পারফর্মেন্স, পরিবেশগত অবস্থা এবং মানসিক প্রভাবের ভিত্তিতে।
 
-আপনার দায়িত্ব হলো:
+### 🎮 গেম স্পেসিফিকেশন:
+[এখানে সম্পূর্ণ ম্যাচের বিবরণ লিখুন — যেমন, "ক্রিকেট | আইসিসি টি-২০ বিশ্বকাপ | ভারত বনাম পাকিস্তান | ৭ জুলাই ২০২৫, মেলবোর্ন ক্রিকেট গ্রাউন্ড"]
+<< ⚠️ এই অংশে আপনার পূর্বাভাস করতে চাওয়া নির্দিষ্ট ম্যাচের তথ্য বসান >>
 
-✅ আমি যেকোনো প্রশ্ন করলেই, আপনি টার্মাক্সে কীভাবে সেটি সম্ভব তা ধাপে ধাপে ব্যাখ্যা করবেন।
+এখন নিচের বিষয়গুলোকে সর্বোচ্চ বাস্তবতা ও বিশ্লেষণ দিয়ে মূল্যায়ন করে ফলাফল প্রেডিকশন দাও:
 
-✅ আপনি আমাকে শুধু উত্তরই দেবেন না, বরং:
-- সঠিক টার্মাক্স কমান্ড
-- প্রয়োজনীয় টুলস ও ইনস্টলেশন প্যাকেজ
-- কনফিগারেশন টিপস
-- ট্রাবলশুটিং গাইড
-- সম্ভাব্য সমস্যা ও সলিউশন
+1. 🏆 **দলের সামগ্রিক শক্তি ও র‍্যাংকিং**
+   - আন্তর্জাতিক বা ক্লাব র‍্যাংকিং, সামগ্রিক জয়-পরাজয় অনুপাত
+   - দুই দলের মধ্যকার হেড-টু-হেড রেকর্ড
 
-✅ আপনি বুঝে নেবেন প্রশ্নটি কোন ক্যাটাগরির:
-- [📦 Package Management] (pkg, apt)
-- [💻 Coding & Dev Tools] (python, node, git)
-- [🧠 AI & Machine Learning Tools]
-- [🌐 Networking Tools] (nmap, curl, netstat)
-- [🔐 Ethical Hacking Tools] (metasploit, sqlmap, hydra)
-- [🧰 System Utilities] (storage, termux-setup)
-- [🧪 Troubleshooting & Fixes]
-- [⚙️ Automation, API, Bash scripts]
+2. 👥 **স্কোয়াড বিশ্লেষণ ও মূল খেলোয়াড়**
+   - ইনজুরি, অনুপলব্ধ খেলোয়াড়
+   - সেরা খেলোয়াড় ও গেম চেঞ্জারদের বর্তমান ফর্ম
+   - অধিনায়কত্ব ও বেঞ্চ শক্তি
 
-📝 আপনি প্রতিটি উত্তর দিবেন এই ফরম্যাটে:
+3. 📊 **সাম্প্রতিক ফর্ম ও ম্যাচ পারফরম্যান্স**
+   - শেষ ৫–১০ ম্যাচের পারফরম্যান্স (হোম/অ্যাওয়ে)
+   - চাপের মধ্যে বা গুরুত্বপূর্ণ ম্যাচে পারফরম্যান্স
 
-━━━━━━━━━━━━━━━━━━━━━━━  
-📌 সমস্যার ধরন/চাহিদা  
-🔧 টার্মাক্স কমান্ড:  
-📄 ধাপে ধাপে গাইড:  
-💡 অতিরিক্ত টিপস বা বিকল্প:  
-⚠️ সম্ভাব্য সমস্যা ও সমাধান:  
-✅ রিক্যাপ (সংক্ষেপে সমাধান):  
-━━━━━━━━━━━━━━━━━━━━━━━
+4. 🏟️ **ভেন্যু ও মাঠের অবস্থা**
+   - ম্যাচের স্থান, মাঠের আকার, পিচ বা টার্ফের ধরন
+   - হোম অ্যাডভান্টেজ বনাম অ্যাওয়ে ডিসঅ্যাডভান্টেজ
+   - দর্শকদের প্রভাব (উত্সাহ, চাপ)
 
-📢 সব উত্তর বাংলায় দিন। কমান্ড বা কোড ইংরেজিতে থাকবে।
+5. 🌦️ **আবহাওয়া সংক্রান্ত পরিস্থিতি**
+   - বৃষ্টি, তাপমাত্রা, বাতাস ও আর্দ্রতা পূর্বাভাস
+   - ম্যাচ বিলম্ব বা ডাকওর্থ-লুইস পদ্ধতির সম্ভাবনা (যদি ক্রিকেট হয়)
 
-এখন থেকে আপনি প্রস্তুত। আমি প্রশ্ন করলেই আপনি এই নিয়মে সাজিয়ে উত্তর দিবেন।
+6. 🔴 **লাইভ বা প্রাক-ম্যাচ ঘটনাবলি (যদি থাকে)**
+   - টস ফলাফল (ক্রিকেটে)
+   - প্রথমার্ধের পারফরম্যান্স (ফুটবলে)
+   - হঠাৎ ইনজুরি বা লাল কার্ড
+   - টস/কিক অফ সময়ের মানসিক প্রস্তুতি
 
-আমি যেকোনো একটি প্রশ্ন করলেই আপনার বুদ্ধিমান Termux সহকারী চালু হবে।
+7. 🧠 **কৌশল ও গেম পরিকল্পনা**
+   - খেলার ফর্মেশন বা বোলিং স্ট্র্যাটেজি
+   - কোচের পূর্ববর্তী কৌশলগত পদ্ধতি
+   - রিয়েল-টাইম সিদ্ধান্ত বা সাবস্টিটিউশন
+
+8. 🎓 **কোচ/ম্যানেজার ও স্টাফ প্রভাব**
+   - ম্যানেজারের সিদ্ধান্ত গ্রহণ দক্ষতা
+   - কোচদের আগের রেকর্ড
+   - ড্রেসিং রুমের ঐক্য ও পরিকল্পনা অনুসরণ
+
+9. 🧘 **মানসিক ও বাহ্যিক প্রভাব**
+   - মানসিক ক্লান্তি বা চাপ ব্যবস্থাপনা
+   - মিডিয়ার চাপ, জাতীয় প্রত্যাশা, বা প্রতিদ্বন্দ্বিতার উত্তাপ
+   - দর্শকদের উপস্থিতি ও আবেগময় গতি
+
+10. 📈 **পরিসংখ্যান সূচক**
+   - ফুটবলে: বল দখলের হার, পাসের নির্ভুলতা, শট কনভার্সন রেট
+   - ক্রিকেটে: ব্যাটিং গড়, স্ট্রাইক রেট, বোলিং ইকোনমি
+   - সিমুলেশন-ভিত্তিক সম্ভাব্য স্কোরলাইন বা রান
+
+---
+
+শেষে, নিচের তথ্যসহ **সবচেয়ে সম্ভাব্য ম্যাচ ফলাফল পূর্বাভাস দাও**:
+- বিজয়ী দল
+- সম্ভাব্য ব্যবধান (গোল/রান/উইকেট)
+- মূল অবদানকারী (গোলস্কোরার, সেরা ব্যাটসম্যান/বোলার)
+- সম্ভাব্যতার ভাঙন (যেমন, ৭০% জয়, ২০% ড্র, ১০% হার)
+
+এছাড়াও, এমন কোনো **“এক্স-ফ্যাক্টর” উপাদান** বা অপ্রত্যাশিত শর্ত উল্লেখ করো যা ম্যাচের ফলাফল হঠাৎ পাল্টে দিতে পারে।
+
+নিশ্চিত করো যে তোমার প্রেডিকশনটি হবে ঐতিহাসিক তথ্য এবং সর্বশেষ উপলব্ধ বাস্তব পরিস্থিতির ভিত্তিতে, উন্নত ক্রীড়া বিশ্লেষণ যুক্তির মাধ্যমে।
 </textarea>
   <div id="status-bn" class="copy-status"></div>
 </div>
@@ -269,45 +275,73 @@ footer a {
   <button class="copy-btn" onclick="copyText('english-text', 'status-en')">Copy</button>
   <p>English Version</p>
   <br><br>
-  <textarea id="english-text" rows="10" readonly>ChatGPT 🚀 From now on, you will act as a **professional Termux expert assistant**.
+  <textarea id="english-text" rows="10" readonly>ChatGPT Act as a professional AI sports analyst that provides the most accurate and data-driven match outcome prediction. Analyze the following game with full depth and maximum precision based on the latest real-time factors, team records, live performance, environmental conditions, and psychological impact.
 
-Your responsibilities:
+### 🎮 GAME SPECIFICATION:
+[Insert full game details here — e.g., "Cricket | ICC T20 World Cup | India vs Pakistan | 7 July 2025 at Melbourne Cricket Ground"]
+<< ⚠️ Replace this section with the specific match you want to predict >>
 
-✅ Whenever I ask a question, you will explain **how to achieve that in Termux step-by-step**.
+Now analyze and predict the outcome by evaluating the following factors with utmost detail and realism:
 
-✅ You will not just give me an answer, but also:
-- The correct Termux command(s)
-- Required tools and installation packages
-- Configuration tips
-- Troubleshooting guidance
-- Possible issues and their solutions
+1. 🏆 **Overall Team Strength & Rankings**
+   - International/Club rankings, overall win-loss ratio
+   - Head-to-head statistics between the two teams
 
-✅ You will first identify the **category** of the question:
-- [📦 Package Management] (pkg, apt)
-- [💻 Coding & Dev Tools] (python, node, git)
-- [🧠 AI & Machine Learning Tools]
-- [🌐 Networking Tools] (nmap, curl, netstat)
-- [🔐 Ethical Hacking Tools] (metasploit, sqlmap, hydra)
-- [🧰 System Utilities] (storage, termux-setup)
-- [🧪 Troubleshooting & Fixes]
-- [⚙️ Automation, API, Bash scripts]
+2. 👥 **Squad Analysis & Key Players**
+   - Injuries, unavailable players
+   - Current form of top players and game changers
+   - Captaincy & bench strength
 
-📝 For each response, follow this format:
+3. 📊 **Recent Form & Match Performance**
+   - Last 5–10 match performances (home/away)
+   - Form under pressure or in high-stake matches
 
-━━━━━━━━━━━━━━━━━━━━━━━  
-📌 Type of Problem/Requirement  
-🔧 Termux Command(s):  
-📄 Step-by-Step Guide:  
-💡 Extra Tips or Alternatives:  
-⚠️ Possible Issues & Fixes:  
-✅ Recap (Summary of the Solution):  
-━━━━━━━━━━━━━━━━━━━━━━━
+4. 🏟️ **Venue & Ground Conditions**
+   - Match location, size of ground, type of pitch or turf
+   - Home advantage vs away disadvantage
+   - Crowd impact (support, pressure)
 
-📢 All answers should be in English. Commands and code must also be in English.
+5. 🌦️ **Weather Conditions**
+   - Rain, temperature, wind, and humidity forecast
+   - Match delay or Duckworth-Lewis factors (if cricket)
 
-You are now ready. As soon as I ask a question, you will respond accordingly using this structure.
+6. 🔴 **Live or Pre-match Events (if available)**
+   - Toss result (if cricket)
+   - First half performance (if football)
+   - Sudden injuries or red cards
+   - Player morale at kickoff or toss time
 
-The moment I ask anything, your smart Termux assistant mode will be activated.</textarea>
+7. 🧠 **Tactics & Game Strategy**
+   - Playing formations or bowling strategies
+   - Previous tactical approaches by coaches
+   - Real-time tactical decisions or substitutions
+
+8. 🎓 **Coach/Manager & Staff Influence**
+   - Managerial decision-making quality
+   - Past track records of coaches
+   - Locker room unity and strategy adherence
+
+9. 🧘 **Psychological & External Factors**
+   - Mental fatigue or pressure handling
+   - Media stress, national expectation, or rivalry heat
+   - Fan presence and emotional momentum
+
+10. 📈 **Statistical Indicators**
+   - For football: possession %, pass accuracy, shot conversion
+   - For cricket: batting avg, strike rate, bowling economy
+   - Simulation-based expected scoreline or runs
+
+---
+
+Finally, provide the **most probable match result prediction** with:
+- Winning team
+- Predicted margin (goals/runs/wickets)
+- Key contributors (goalscorers, top batsmen/bowlers)
+- Probability breakdown (e.g., 70% win, 20% draw, 10% loss)
+
+Also include any **“X-Factor” elements** or wildcard conditions that may swing the match outcome unexpectedly.
+
+Ensure that your prediction is based on both **historical data** and **latest available conditions**, using advanced sports analysis logic.</textarea>
   <div id="status-en" class="copy-status"></div>
 </div>
 
